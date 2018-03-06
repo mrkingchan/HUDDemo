@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
+#import "URLProtocol.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +18,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    //拦截所有的网络请求
+    [NSURLProtocol registerClass:[URLProtocol class]];
+    
+    _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    _window.backgroundColor = [UIColor whiteColor];
+    ViewController *VC = [ViewController new];
+    UINavigationController *rootVC = [[UINavigationController alloc] initWithRootViewController:VC];
+    _window.rootViewController = rootVC;
+    [_window makeKeyAndVisible];
     return YES;
 }
 
