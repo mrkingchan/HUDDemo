@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "URLProtocol.h"
+#import <AFNetworking.h>
 
 @interface AppDelegate ()
 
@@ -27,9 +28,63 @@
     UINavigationController *rootVC = [[UINavigationController alloc] initWithRootViewController:VC];
     _window.rootViewController = rootVC;
     [_window makeKeyAndVisible];
+    /*1149683958
+    1179661258*/
+    [self checkUpdateWithAppID:@"1179661258"
+                       success:^(NSDictionary *resultDic, BOOL isNewVersion, NSString *newVersion, NSString *currentVersion) {
+                           NSLog(@"currentVersion = %@ isNewVersion = %d",currentVersion,isNewVersion);
+                           NSLog(@"resultDic = %@",resultDic);
+                           for ( NSString *key in resultDic.allKeys) {
+                               id value = [resultDic objectForKey:key];
+                               NSLog(@"value = %@",value);
+                               if ([value isKindOfClass:[NSDictionary class]]) {
+                                   for (NSString *subKey in ((NSDictionary *)value).allKeys) {
+                                       id subValue = [((NSDictionary *)value) objectForKey:subKey];
+                                       NSLog(@"subValue = %@",subValue);
+                                   }
+                               }
+                           }
+                       } failure:^(NSError *error) {
+                           NSLog(@"errorDescrption = %@",error.localizedDescription);
+                       }];
     return YES;
 }
 
+- (void)checkUpdateWithAppID:(NSString *)appID success:(void (^)(NSDictionary *resultDic , BOOL isNewVersion ,NSString * newVersion , NSString * currentVersion))success failure:(void (^)(NSError *error))failure{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer=[AFHTTPRequestSerializer serializer];
+    manager.responseSerializer=[AFHTTPResponseSerializer serializer];
+    NSString *encodingUrl=[[@"http://itunes.apple.com/lookup?id=" stringByAppendingString:appID]stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [manager GET:encodingUrl parameters:nil progress:^(NSProgress *_Nonnull downloadProgress) {
+    } success:^(NSURLSessionDataTask *_Nonnull task, id _Nullable responseObject) {
+        
+        NSDictionary *resultDic=[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+        
+        //获取AppStore的版本号
+        NSString * versionStr =[[[resultDic objectForKey:@"results"]objectAtIndex:0]valueForKey:@"version"];
+        
+        NSString *versionStr_int= [versionStr stringByReplacingOccurrencesOfString:@"."withString:@""];
+        int version=[versionStr_int integerValue];
+        //获取本地的版本号
+        NSDictionary *infoDic=[[NSBundle mainBundle] infoDictionary];
+        
+        NSString * currentVersion = [infoDic valueForKey:@"CFBundleShortVersionString"];
+        
+        NSString *currentVersion_int=[currentVersion stringByReplacingOccurrencesOfString:@"."withString:@""];
+        
+        int current=[currentVersion_int intValue];
+        
+        //线上版本>本地版本
+        if (version>current) {
+            success(resultDic,YES, versionStr,currentVersion);
+        }else{
+            //线上版本=本地版本 不需要更新
+            success(resultDic,NO ,versionStr,currentVersion);
+        }
+    } failure:^(NSURLSessionDataTask *_Nullable task, NSError *_Nonnull error) {
+        failure(error);
+    }];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
