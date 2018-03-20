@@ -52,7 +52,6 @@
     }
 }
 
-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return  50;
 }
@@ -64,7 +63,9 @@
         cell = [[Cell alloc] initWithStyle:0 reuseIdentifier:kcellID];
     }
     cell.complete = ^(Cell *cell) {
+        //转换为self.view中的坐标
         _rect = [cell convertRect:cell.input.frame toView:self.view];
+        NSLog(@"rectFrame = %@",NSStringFromCGRect(_rect));
     };
     return cell;
 }
