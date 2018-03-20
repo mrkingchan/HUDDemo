@@ -31,27 +31,27 @@
     
     /*1149683958
     1179661258*/
-    [self checkUpdateWithAppID:@"1179661258"
-                       success:^(NSDictionary *resultDic, BOOL isNewVersion, NSString *newVersion, NSString *currentVersion) {
-                           NSURL *downLoadUrl = [NSURL URLWithString:@"https://itunes.apple.com/cn/app/%E9%92%B1%E5%AF%8C%E9%80%9A%E7%90%86%E8%B4%A2/id1163975284?mt=8"];
-                           if ([[UIApplication sharedApplication] canOpenURL:downLoadUrl]) {
-                               [[UIApplication sharedApplication] openURL:downLoadUrl];
-                           }
-                          /* NSLog(@"currentVersion = %@ isNewVersion = %d",currentVersion,isNewVersion);
-                           NSLog(@"resultDic = %@",resultDic);
-                           for ( NSString *key in resultDic.allKeys) {
-                               id value = [resultDic objectForKey:key];
-                               NSLog(@"value = %@",value);
-                               if ([value isKindOfClass:[NSDictionary class]]) {
-                                   for (NSString *subKey in ((NSDictionary *)value).allKeys) {
-                                       id subValue = [((NSDictionary *)value) objectForKey:subKey];
-                                       NSLog(@"subValue = %@",subValue);
-                                   }
-                               }
-                           }*/
-                       } failure:^(NSError *error) {
-                           NSLog(@"errorDescrption = %@",error.localizedDescription);
-                       }];
+//    [self checkUpdateWithAppID:@"1179661258"
+//                       success:^(NSDictionary *resultDic, BOOL isNewVersion, NSString *newVersion, NSString *currentVersion) {
+//                           NSURL *downLoadUrl = [NSURL URLWithString:@"https://itunes.apple.com/cn/app/%E9%92%B1%E5%AF%8C%E9%80%9A%E7%90%86%E8%B4%A2/id1163975284?mt=8"];
+//                           if ([[UIApplication sharedApplication] canOpenURL:downLoadUrl]) {
+//                               [[UIApplication sharedApplication] openURL:downLoadUrl];
+//                           }
+//                          /* NSLog(@"currentVersion = %@ isNewVersion = %d",currentVersion,isNewVersion);
+//                           NSLog(@"resultDic = %@",resultDic);
+//                           for ( NSString *key in resultDic.allKeys) {
+//                               id value = [resultDic objectForKey:key];
+//                               NSLog(@"value = %@",value);
+//                               if ([value isKindOfClass:[NSDictionary class]]) {
+//                                   for (NSString *subKey in ((NSDictionary *)value).allKeys) {
+//                                       id subValue = [((NSDictionary *)value) objectForKey:subKey];
+//                                       NSLog(@"subValue = %@",subValue);
+//                                   }
+//                               }
+//                           }*/
+//                       } failure:^(NSError *error) {
+//                           NSLog(@"errorDescrption = %@",error.localizedDescription);
+//                       }];
     return YES;
 }
 

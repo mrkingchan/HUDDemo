@@ -47,8 +47,8 @@
     _showErrorMessage.hidden = YES;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         iToastHide;
-        /*_showErrorMessage.hidden = NO;
-        [self.view  bringSubviewToFront:_showErrorMessage];*/
+        _showErrorMessage.hidden = NO;
+        [self.view  bringSubviewToFront:_showErrorMessage];
     });
     
     [NetTool innerRequestWithHttpMethod:@"GET"
@@ -56,9 +56,15 @@
                                 urlPath:@"http://www.baidu.com"
                              parameters:nil
                                  sucess:^(NSDictionary *repsonseDic) {
-                                     
+                                     NSLog(@"currentThread = %@",[NSThread currentThread]);
+                                     gcdMain(^{
+                                         iToast([repsonseDic mj_JSONString]);
+                                         NSLog(@"currentThread = %@",[NSThread currentThread]);
+                                     });
                                  } failure:^(NSError *error) {
-                                    
+                                     gcdMain(^{
+                                         iToast(error.localizedDescription);
+                                     });
                                  }];
 }
 

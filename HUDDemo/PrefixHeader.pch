@@ -17,5 +17,8 @@
 
 #define iToastLoading [LCProgressHUD showLoading:@""]
 #define iToastHide [LCProgressHUD hide]
+#define iToast(XXX)  [LCProgressHUD showMessage:XXX]
+#define gcdMain(block)  dispatch_async(dispatch_get_main_queue(),block);
+#import <MJExtension/MJExtension.h>
 
 #endif /* PrefixHeader_pch */
