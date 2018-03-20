@@ -51,8 +51,7 @@
     [self.navigationController pushViewController:[NextVC new] animated:YES];
 }
 
-
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self.navigationController pushViewController:[NextVC new] animated:YES];
 }
 @end

@@ -8,7 +8,7 @@
 
 #import "NextVC.h"
 #import "NetTool.h"
-
+#import "InputVC.h"
 @interface NextVC () {
     UILabel *_showErrorMessage;
 }
@@ -20,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(next:)];
     [[AFNetworkReachabilityManager sharedManager]setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         if (status == AFNetworkReachabilityStatusNotReachable) {
             _showErrorMessage.hidden = NO;
@@ -40,6 +41,11 @@
     _showErrorMessage.text = @"当前网络连接不稳定,请检查网络配置 \n 下拉可重新加载";
     [self.view addSubview:_showErrorMessage];
 }
+
+- (void)next:(id)sender {
+    [self.navigationController pushViewController:[InputVC new] animated:YES];
+}
+
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     iToastLoading;   //HUD不阻塞主线程的 需要在hud的初始那里禁止userInterface = NO

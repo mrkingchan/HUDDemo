@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		09072BFA20CE1F2AC9CD4B44 /* libPods-HUDDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06BC3CC28B58BF6481888F87 /* libPods-HUDDemo.a */; };
 		8F8CC1F02060A0C900589951 /* NetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F8CC1EF2060A0C900589951 /* NetTool.m */; };
+		8F8CC1F32060E07900589951 /* InputVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F8CC1F22060E07900589951 /* InputVC.m */; };
+		8F8CC1F62060E09000589951 /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F8CC1F52060E09000589951 /* Cell.m */; };
 		8FC2A0D8204E2E1500B36725 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC2A0D7204E2E1500B36725 /* AppDelegate.m */; };
 		8FC2A0DB204E2E1500B36725 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC2A0DA204E2E1500B36725 /* ViewController.m */; };
 		8FC2A0DE204E2E1500B36725 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FC2A0DC204E2E1500B36725 /* Main.storyboard */; };
@@ -42,6 +44,10 @@
 		06BC3CC28B58BF6481888F87 /* libPods-HUDDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HUDDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F8CC1EE2060A0C900589951 /* NetTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetTool.h; sourceTree = "<group>"; };
 		8F8CC1EF2060A0C900589951 /* NetTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetTool.m; sourceTree = "<group>"; };
+		8F8CC1F12060E07900589951 /* InputVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputVC.h; sourceTree = "<group>"; };
+		8F8CC1F22060E07900589951 /* InputVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputVC.m; sourceTree = "<group>"; };
+		8F8CC1F42060E09000589951 /* Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
+		8F8CC1F52060E09000589951 /* Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
 		8FC2A0D3204E2E1500B36725 /* HUDDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HUDDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FC2A0D6204E2E1500B36725 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8FC2A0D7204E2E1500B36725 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -135,6 +141,10 @@
 				8F8CC1EF2060A0C900589951 /* NetTool.m */,
 				8FC2A109204E2FF200B36725 /* NextVC.h */,
 				8FC2A10A204E2FF200B36725 /* NextVC.m */,
+				8F8CC1F12060E07900589951 /* InputVC.h */,
+				8F8CC1F22060E07900589951 /* InputVC.m */,
+				8F8CC1F42060E09000589951 /* Cell.h */,
+				8F8CC1F52060E09000589951 /* Cell.m */,
 				8FC2A10C204E68C400B36725 /* URLProtocol.h */,
 				8FC2A10D204E68C400B36725 /* URLProtocol.m */,
 				8FC2A108204E2E6F00B36725 /* PrefixHeader.pch */,
@@ -365,7 +375,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FC2A0DB204E2E1500B36725 /* ViewController.m in Sources */,
+				8F8CC1F62060E09000589951 /* Cell.m in Sources */,
 				8F8CC1F02060A0C900589951 /* NetTool.m in Sources */,
+				8F8CC1F32060E07900589951 /* InputVC.m in Sources */,
 				8FC2A10E204E68C400B36725 /* URLProtocol.m in Sources */,
 				8FC2A0E6204E2E1500B36725 /* main.m in Sources */,
 				8FC2A0D8204E2E1500B36725 /* AppDelegate.m in Sources */,
