@@ -11,6 +11,7 @@
 @implementation NetTool
 
 + (NSURLSessionDataTask  *)innerRequestWithHttpMethod:(NSString *)method
+                                               target:(id)target
                                               urlPath:(NSString *)path
                                            parameters:(NSDictionary *)parameters
                                                sucess:(sucess)success
@@ -21,6 +22,8 @@
     request.HTTPBody = [NSJSONSerialization dataWithJSONObject:parameters
                                                        options:kNilOptions
                                                          error:nil];
+    
+    ///构建网络任务task
     NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request
                                                                  completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
                                                                      if (error) {
@@ -35,6 +38,9 @@
                                                                          }
                                                                      }
                                                                  }];
+    if ([target respondsToSelector:@selector(addTarget:)]) {
+        [target performSelector:@selector(addTarget:)withObject:task];
+    }
     [task resume];
     return  task;
 }

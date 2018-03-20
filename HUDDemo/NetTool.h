@@ -23,6 +23,7 @@ typedef void(^failure)(NSError *error);
  */
 
 + (NSURLSessionDataTask *)innerRequestWithHttpMethod:(NSString*)method
+                                              target:(id)target
                                              urlPath:(NSString*)path
                                           parameters:(NSDictionary *)parameters
                                               sucess:(sucess)success
