@@ -19,10 +19,12 @@
     //构建网络请求对象
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:path]];
     request.HTTPMethod = method;
-    request.HTTPBody = [NSJSONSerialization dataWithJSONObject:parameters
-                                                       options:kNilOptions
-                                                         error:nil];
-    
+//    assert(parameters !=nil);
+    if (parameters!= nil) {
+        request.HTTPBody = [NSJSONSerialization dataWithJSONObject:parameters
+                                                           options:kNilOptions
+                                                             error:nil];
+    }
     ///构建网络任务task
     NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request
                                                                  completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {

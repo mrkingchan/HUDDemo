@@ -7,6 +7,7 @@
 //
 
 #import "NextVC.h"
+#import "NetTool.h"
 
 @interface NextVC () {
     UILabel *_showErrorMessage;
@@ -49,6 +50,16 @@
         /*_showErrorMessage.hidden = NO;
         [self.view  bringSubviewToFront:_showErrorMessage];*/
     });
+    
+    [NetTool innerRequestWithHttpMethod:@"GET"
+                                 target:self
+                                urlPath:@"http://www.baidu.com"
+                             parameters:nil
+                                 sucess:^(NSDictionary *repsonseDic) {
+                                     
+                                 } failure:^(NSError *error) {
+                                    
+                                 }];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
