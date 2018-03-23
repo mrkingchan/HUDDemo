@@ -31,6 +31,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillHideAction:) name:UIKeyboardWillHideNotification object:nil];
 }
 
+#pragma mark  -- handel keyBoard
 - (void)keyBoardWillHideAction:(NSNotification *)noti {
     [UIView animateWithDuration:0.2 animations:^{
         self.view.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
@@ -75,4 +76,33 @@
         [cell.input resignFirstResponder];
     }
 }
+
+
+#warning  ################# coreCode 核心代码
+
+/*
+ - (void)keyboardWillShow:(NSNotification *)notification {
+ NSDictionary *info = notification.userInfo;
+ NSValue *aValue = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
+ CGRect keyboardRect = [aValue CGRectValue];
+ CGFloat height = keyboardRect.size.height;
+ //获取第一响应者
+ UIView *input = (UIView*) [UIResponder currentFirstResponder];
+ CGRect rec = [ input.superview convertRect:input.frame toView:self.view];
+ CGFloat h = kScreenHeight - rec.origin.y - rec.size.height - height ;
+ if (h < 0) {
+ [UIView animateWithDuration:0.2 animations:^{
+ self.view.frame = CGRectMake(0, h, kScreenWidth, kScreenHeight);
+ [self.view layoutIfNeeded];
+ }];
+ }
+ }
+ 
+ - (void)keyboardWillHide:(NSNotification *)notification {
+ [UIView animateWithDuration:0.2 animations:^{
+ self.view.frame = CGRectMake(0, 64, kScreenWidth, kScreenHeight);
+ [self.view layoutIfNeeded];
+ }];
+ }
+ */
 @end
