@@ -21,6 +21,7 @@
 		8FC2A0FB204E2E1600B36725 /* HUDDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC2A0FA204E2E1600B36725 /* HUDDemoUITests.m */; };
 		8FC2A10B204E2FF200B36725 /* NextVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC2A10A204E2FF200B36725 /* NextVC.m */; };
 		8FC2A10E204E68C400B36725 /* URLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC2A10D204E68C400B36725 /* URLProtocol.m */; };
+		8FFABE072064CF3000194430 /* UIResponder+CurrentResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FFABE052064CF3000194430 /* UIResponder+CurrentResponder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,8 @@
 		8FC2A10A204E2FF200B36725 /* NextVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NextVC.m; sourceTree = "<group>"; };
 		8FC2A10C204E68C400B36725 /* URLProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = URLProtocol.h; sourceTree = "<group>"; };
 		8FC2A10D204E68C400B36725 /* URLProtocol.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = URLProtocol.m; sourceTree = "<group>"; };
+		8FFABE052064CF3000194430 /* UIResponder+CurrentResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+CurrentResponder.m"; sourceTree = "<group>"; };
+		8FFABE062064CF3000194430 /* UIResponder+CurrentResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+CurrentResponder.h"; sourceTree = "<group>"; };
 		A1412DE36BFD79A7F54CF332 /* Pods-HUDDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUDDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-HUDDemo/Pods-HUDDemo.release.xcconfig"; sourceTree = "<group>"; };
 		F60EEA04AAA871227E0B41A8 /* Pods-HUDDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUDDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HUDDemo/Pods-HUDDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,6 +146,8 @@
 				8FC2A10A204E2FF200B36725 /* NextVC.m */,
 				8F8CC1F12060E07900589951 /* InputVC.h */,
 				8F8CC1F22060E07900589951 /* InputVC.m */,
+				8FFABE062064CF3000194430 /* UIResponder+CurrentResponder.h */,
+				8FFABE052064CF3000194430 /* UIResponder+CurrentResponder.m */,
 				8F8CC1F42060E09000589951 /* Cell.h */,
 				8F8CC1F52060E09000589951 /* Cell.m */,
 				8FC2A10C204E68C400B36725 /* URLProtocol.h */,
@@ -381,6 +386,7 @@
 				8FC2A10E204E68C400B36725 /* URLProtocol.m in Sources */,
 				8FC2A0E6204E2E1500B36725 /* main.m in Sources */,
 				8FC2A0D8204E2E1500B36725 /* AppDelegate.m in Sources */,
+				8FFABE072064CF3000194430 /* UIResponder+CurrentResponder.m in Sources */,
 				8FC2A10B204E2FF200B36725 /* NextVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
