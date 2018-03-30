@@ -40,6 +40,7 @@
     _showErrorMessage.hidden = true;
     _showErrorMessage.text = @"当前网络连接不稳定,请检查网络配置 \n 下拉可重新加载";
     [self.view addSubview:_showErrorMessage];
+    ////
 }
 
 - (void)next:(id)sender {
